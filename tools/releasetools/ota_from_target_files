@@ -395,18 +395,37 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   script.ShowProgress(0.5, 0)
 
+  ###### Print Header ######
+  script.Print("")
+  script.Print("")
+  script.Print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  script.Print("#                                              #")
+  script.Print("#             SomethingJelly 4.2.1             #")
+  script.Print("#                something15525                #")
+  script.Print("#                                              #")
+  script.Print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  script.Print("")
+  script.Print("")
+  script.Print("")
+  script.Print("")
+
   if OPTIONS.wipe_user_data:
+    script.Print("Formatting data...")
     script.FormatPartition("/data")
 
   if "selinux_fc" in OPTIONS.info_dict:
     WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
 
+  script.Print("Formatting system...")
   script.FormatPartition("/system")
+  script.Print("Mounting system...")
   script.Mount("/system")
   #script.UnpackPackageDir("recovery", "/system")
+  script.Print("Installing system...")
   script.UnpackPackageDir("system", "/system")
 
   symlinks = CopySystemFiles(input_zip, output_zip)
+  script.Print("Symlinking...")
   script.MakeSymlinks(symlinks)
 
   boot_img = common.GetBootableImage("boot.img", "boot.img",
@@ -423,10 +442,12 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.ShowProgress(0.2, 0)
 
   script.ShowProgress(0.2, 10)
+  script.Print("Writing boot.img...")
   script.WriteRawImage("/boot", "boot.img")
 
   script.ShowProgress(0.1, 0)
   device_specific.FullOTA_InstallEnd()
+  script.Print("Done!")
 
   if OPTIONS.extra_script is not None:
     script.AppendExtra(OPTIONS.extra_script)
