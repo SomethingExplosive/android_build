@@ -1163,7 +1163,7 @@ ifneq ($(recovery_fstab),)
 # -----------------------------------------------------------------
 # OTA update package
 
-name := sj4.2.1-$(BUILD_VERSION)-$(TARGET_DEVICE)
+name := sj4.2.2-$(BUILD_VERSION)-$(TARGET_DEVICE)
 ifeq ($(TARGET_BUILD_TYPE),debug)
   name := $(name)_debug
 endif
