@@ -400,7 +400,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.Print("")
   script.Print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
   script.Print("#                                              #")
-  script.Print("#            SomethingExplosive 4.2.2          #")
+  script.Print("#            SomethingExplosive 4.3            #")
   script.Print("#                something15525                #")
   script.Print("#                                              #")
   script.Print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -414,6 +414,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
     script.FormatPartition("/data")
 
   if "selinux_fc" in OPTIONS.info_dict:
+    script.Print("Writing SELinux Policy...")
     WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
 
   script.Print("Formatting system...")
@@ -421,9 +422,10 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.Print("Mounting system...")
   script.Mount("/system")
   #script.UnpackPackageDir("recovery", "/system")
-  script.Print("Installing system...")
+  script.Print("Unpacking system...")
   script.UnpackPackageDir("system", "/system")
 
+  script.Print("Copying system files...")
   symlinks = CopySystemFiles(input_zip, output_zip)
   script.Print("Symlinking...")
   script.MakeSymlinks(symlinks)
