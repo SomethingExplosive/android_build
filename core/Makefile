@@ -1250,7 +1250,7 @@ ifneq ($(recovery_fstab),)
 # -----------------------------------------------------------------
 # OTA update package
 
-name := SoMeX4.2.2-$(BUILD_VERSION)-$(TARGET_DEVICE)
+name := SoMeX4.3-$(BUILD_VERSION)-$(TARGET_DEVICE)
 ifeq ($(TARGET_BUILD_TYPE),debug)
   name := $(name)_debug
 endif
