@@ -409,7 +409,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.Print("    //       III IIIIIIIIIIIIII III       \\	")
   script.Print("  //              IIIIIIIIIIII              \\	")
   script.Print("//                 III    III                 \\")
-  script.Print("ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ")
+  script.Print("||||||||||||||||||||||||||||||||||||||||||||||||")
   script.Print("         _____       __  __     __   __		")
   script.Print("        / ____|     |  \/  |    \ \ / /		")
   script.Print("       | (___   ___ | \  / | ___ \ V /		")
