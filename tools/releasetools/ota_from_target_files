@@ -438,7 +438,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.Print("")
   script.Print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
   script.Print("#                                              #")
-  script.Print("#            SomethingExplosive 4.4            #")
+  script.Print("#           SomethingExplosive 4.4.2           #")
   script.Print("#                something15525                #")
   script.Print("#                                              #")
   script.Print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
